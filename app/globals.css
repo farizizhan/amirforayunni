@@ -38,6 +38,12 @@ html {
   html {
     font-size: 16px; /* Prevent font boosting on mobile */
   }
+
+  /* Larger base font for readability */
+  body {
+    font-size: 17px;
+    line-height: 1.6;
+  }
 }
 
 /* Touch-friendly interactions */
@@ -46,10 +52,16 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Ensure minimum touch target size */
+/* Enhanced minimum touch target size */
 button, a, input[type="button"], input[type="submit"] {
-  min-height: 44px;
-  min-width: 44px;
+  min-height: 56px;
+  min-width: 56px;
+}
+
+/* Button active state for better mobile feedback */
+button:active, a:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
 }
 
 /* Custom animations */
@@ -71,4 +83,31 @@ button, a, input[type="button"], input[type="submit"] {
   50% {
     transform: translateY(-10px);
   }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Playful emoji animations */
+.animate-bounce-slow {
+  animation: bounce 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }

@@ -26,12 +26,12 @@ export default function VenueMap() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-8"
+        className="text-center mb-10"
       >
-        <h2 className="text-4xl font-serif text-gray-800 dark:text-gray-100 mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
-          Venue & Directions
+        <h2 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+          📍 Venue & Directions 🗺️
         </h2>
-        <p className="text-gray-600 dark:text-gray-400">Find your way to our celebration</p>
+        <p className="text-xl md:text-2xl text-purple-900 dark:text-purple-950">Find your way to our celebration 🌸</p>
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -64,16 +64,16 @@ export default function VenueMap() {
           className="space-y-6"
         >
           {/* Address */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+          <div className="bg-purple-50 dark:bg-purple-100 rounded-2xl shadow-xl p-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center flex-shrink-0">
                 <FaMapMarkerAlt className="text-purple-600 dark:text-purple-400" size={20} />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                <h3 className="text-2xl md:text-3xl font-bold text-purple-950 dark:text-purple-950 mb-3">
                   {venueInfo.name}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-lg md:text-xl text-purple-900 dark:text-purple-950 mb-4">
                   {venueInfo.address}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -101,16 +101,16 @@ export default function VenueMap() {
           </div>
 
           {/* Parking */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+          <div className="bg-purple-50 dark:bg-purple-100 rounded-2xl shadow-xl p-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center flex-shrink-0">
                 <FaParking className="text-green-600 dark:text-green-400" size={20} />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                <h3 className="text-2xl md:text-3xl font-bold text-purple-950 dark:text-purple-950 mb-3">
                   Parking
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-lg md:text-xl text-purple-900 dark:text-purple-950">
                   {venueInfo.parking}
                 </p>
               </div>
@@ -118,19 +118,19 @@ export default function VenueMap() {
           </div>
 
           {/* Nearby Hotels */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+          <div className="bg-purple-50 dark:bg-purple-100 rounded-2xl shadow-xl p-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center flex-shrink-0">
                 <FaHotel className="text-blue-600 dark:text-blue-400" size={20} />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                <h3 className="text-2xl md:text-3xl font-bold text-purple-950 dark:text-purple-950 mb-3">
                   Nearby Hotels
                 </h3>
                 <ul className="space-y-2">
                   {venueInfo.nearbyHotels.map((hotel, index) => (
-                    <li key={index} className="text-gray-600 dark:text-gray-400 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-purple-600 rounded-full"></span>
+                    <li key={index} className="text-lg text-purple-900 dark:text-purple-950 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
                       {hotel}
                     </li>
                   ))}

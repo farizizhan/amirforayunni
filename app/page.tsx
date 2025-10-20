@@ -29,12 +29,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950 dark:to-violet-950">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-200 dark:to-pink-200">
       {/* Music Player */}
       <MusicPlayer />
 
       {/* Navigation */}
-      <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-md sticky top-0 z-40">
+      <nav className="bg-purple-50/90 dark:bg-purple-100/90 backdrop-blur-sm shadow-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <motion.div
@@ -77,74 +77,74 @@ export default function Home() {
 
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4"
+            className="text-2xl md:text-3xl text-purple-900 dark:text-purple-950 mb-4 font-medium"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
-            Together with their families
+            Together with their families 🌸
           </motion.p>
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-gray-800 dark:text-gray-100 mb-4 px-4"
-            style={{ fontFamily: 'var(--font-playfair)' }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif text-purple-950 dark:text-purple-950 mb-6 px-4 leading-tight"
+            style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '-0.02em' }}
           >
-            Amir <span className="text-purple-600 dark:text-purple-400">&</span> Ayunni
+            💜 Amir <span className="text-purple-600 dark:text-purple-600">&</span> Ayunni 💜
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-400 px-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-purple-900 dark:text-purple-950 px-4 font-light"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
-            are getting married
+            are getting married ✨
           </motion.p>
         </motion.div>
 
         {/* Date & Venue Card */}
         <motion.div variants={itemVariants} className="mb-16">
-          <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 md:p-12">
+          <div className="max-w-3xl mx-auto bg-purple-50/95 dark:bg-purple-50/95 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 border border-purple-200">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div className="text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
-                  <FaCalendarAlt className="text-3xl text-purple-600 dark:text-purple-400" />
-                  <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+                  <span className="text-5xl">📅</span>
+                  <h3 className="text-3xl font-semibold text-purple-950 dark:text-purple-950">
                     Date
                   </h3>
                 </div>
-                <p className="text-4xl font-serif text-purple-600 dark:text-purple-400 mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+                <p className="text-5xl font-serif text-purple-600 dark:text-purple-600 mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
                   22 December 2025
                 </p>
-                <p className="text-gray-600 dark:text-gray-400">Sunday</p>
+                <p className="text-xl text-purple-900 dark:text-purple-950">Sunday 🌸</p>
               </div>
 
               <div className="text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
-                  <FaMapMarkerAlt className="text-3xl text-purple-600 dark:text-purple-400" />
-                  <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+                  <span className="text-5xl">📍</span>
+                  <h3 className="text-3xl font-semibold text-purple-950 dark:text-purple-950">
                     Venue
                   </h3>
                 </div>
-                <p className="text-xl font-semibold text-gray-800 dark:text-gray-100">
-                  Willow Hall
+                <p className="text-2xl font-semibold text-purple-950 dark:text-purple-950">
+                  Willow Hall 🏛️
                 </p>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-lg text-purple-900 dark:text-purple-950 mt-2">
                   Forrest Valley<br />Bandar Mahkota Cheras
                 </p>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center px-3">
               <Link
                 href="/rsvp"
-                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold py-4 px-8 sm:px-10 rounded-full transition shadow-lg hover:shadow-xl text-center text-base sm:text-lg touch-manipulation"
+                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold py-5 px-10 sm:px-12 rounded-full transition shadow-lg hover:shadow-2xl text-center text-xl sm:text-2xl touch-manipulation transform hover:scale-105"
               >
-                RSVP Now
+                RSVP Now 💜
               </Link>
               <Link
                 href="/our-story"
-                className="bg-white hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 text-purple-600 dark:text-purple-400 font-semibold py-4 px-8 sm:px-10 rounded-full transition shadow-lg hover:shadow-xl border-2 border-purple-600 dark:border-purple-400 text-center text-base sm:text-lg touch-manipulation"
+                className="bg-white hover:bg-purple-50 dark:bg-white dark:hover:bg-purple-50 text-purple-600 dark:text-purple-600 font-bold py-5 px-10 sm:px-12 rounded-full transition shadow-lg hover:shadow-2xl border-3 border-purple-600 dark:border-purple-600 text-center text-xl sm:text-2xl touch-manipulation transform hover:scale-105"
               >
-                Our Story
+                Our Story 🌸
               </Link>
             </div>
           </div>
@@ -157,30 +157,30 @@ export default function Home() {
 
         {/* Feature Cards */}
         <motion.div variants={itemVariants} className="mb-20">
-          <h2 className="text-4xl font-serif text-center text-gray-800 dark:text-gray-100 mb-12" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Celebrate With Us
+          <h2 className="text-5xl md:text-6xl font-serif text-center text-purple-950 dark:text-purple-950 mb-16" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Celebrate With Us 🌸
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: FaBook, title: "Our Story", desc: "Journey of love", link: "/our-story", color: "from-pink-500 to-rose-500" },
-              { icon: FaUsers, title: "Wedding Party", desc: "Meet our squad", link: "/wedding-party", color: "from-purple-500 to-violet-500" },
-              { icon: FaHeart, title: "Guest Book", desc: "Leave your wishes", link: "/guest-book", color: "from-red-500 to-pink-500" },
-              { icon: FaGift, title: "Registry", desc: "Gift options", link: "/registry", color: "from-blue-500 to-purple-500" },
+              { emoji: "💐", title: "Our Story", desc: "Journey of love", link: "/our-story" },
+              { emoji: "👰🤵", title: "Wedding Party", desc: "Meet our squad", link: "/wedding-party" },
+              { emoji: "💌", title: "Guest Book", desc: "Leave your wishes", link: "/guest-book" },
+              { emoji: "🎁", title: "Registry", desc: "Gift options", link: "/registry" },
             ].map((feature, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -10, scale: 1.05 }}
+                whileHover={{ y: -15, scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               >
-                <Link href={feature.link} className="block bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all p-6 text-center">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center`}>
-                    <feature.icon className="text-3xl text-white" />
+                <Link href={feature.link} className="block bg-purple-50 dark:bg-purple-50 rounded-3xl shadow-xl hover:shadow-2xl transition-all p-8 text-center border border-purple-200">
+                  <div className="text-7xl mb-6">
+                    {feature.emoji}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                  <h3 className="text-2xl font-bold text-purple-950 dark:text-purple-950 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-lg text-purple-900 dark:text-purple-950">
                     {feature.desc}
                   </p>
                 </Link>
@@ -197,20 +197,20 @@ export default function Home() {
         {/* Final CTA */}
         <motion.div
           variants={itemVariants}
-          className="text-center bg-gradient-to-br from-purple-600 to-violet-600 rounded-3xl shadow-2xl p-12 text-white"
+          className="text-center bg-gradient-to-br from-purple-600 to-violet-600 rounded-3xl shadow-2xl p-12 md:p-16 text-white"
         >
-          <FaClock className="text-6xl mx-auto mb-6 animate-pulse" />
-          <h2 className="text-4xl md:text-5xl font-serif mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Don't Miss Our Big Day!
+          <div className="text-8xl mb-8 animate-pulse">⏰</div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Don't Miss Our Big Day! 💜
           </h2>
-          <p className="text-xl mb-8 opacity-90" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Please RSVP by 15 December 2025
+          <p className="text-2xl md:text-3xl mb-10 opacity-95" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Please RSVP by 15 December 2025 🌸
           </p>
           <Link
             href="/rsvp"
-            className="inline-block bg-white text-purple-600 hover:bg-gray-100 font-semibold py-4 px-12 rounded-full transition shadow-lg hover:shadow-xl text-lg"
+            className="inline-block bg-white text-purple-600 hover:bg-purple-50 font-bold py-6 px-16 rounded-full transition shadow-lg hover:shadow-2xl text-2xl transform hover:scale-105 touch-manipulation"
           >
-            Reserve Your Spot
+            Reserve Your Spot ✨
           </Link>
         </motion.div>
       </motion.main>
@@ -220,12 +220,12 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="mt-16 py-8 text-center text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800"
+        className="mt-16 py-10 text-center text-purple-900 dark:text-purple-950 border-t-2 border-purple-300 dark:border-purple-300"
       >
-        <p className="font-serif text-lg" style={{ fontFamily: 'var(--font-cormorant)' }}>
-          With love, Amir & Ayunni ❤️
+        <p className="font-serif text-2xl md:text-3xl mb-3" style={{ fontFamily: 'var(--font-cormorant)' }}>
+          🌸 With love, Fariz 💜
         </p>
-        <p className="text-sm mt-2">22 December 2025</p>
+        <p className="text-lg text-purple-900 dark:text-purple-950">22 December 2025 ✨</p>
       </motion.footer>
     </div>
   );

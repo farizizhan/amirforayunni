@@ -52,12 +52,12 @@ export default function CountdownTimer() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-6"
+        className="text-center mb-8"
       >
-        <h2 className="text-3xl font-serif text-gray-800 dark:text-gray-100 mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
-          Counting Down
+        <h2 className="text-4xl md:text-5xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+          🕐 Counting Down 🕐
         </h2>
-        <p className="text-gray-600 dark:text-gray-400">Until we say "I do"</p>
+        <p className="text-xl md:text-2xl text-purple-900 dark:text-purple-950">Until we say "I do" 💍</p>
       </motion.div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
@@ -68,19 +68,19 @@ export default function CountdownTimer() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ scale: 1.05 }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 text-center"
+            className="bg-purple-50 dark:bg-purple-100 rounded-2xl shadow-xl p-6 text-center"
           >
             <motion.div
               key={unit.value}
               initial={{ scale: 1.2, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="text-5xl md:text-6xl font-bold text-purple-600 dark:text-purple-400 mb-2"
+              className="text-6xl md:text-7xl lg:text-8xl font-bold text-purple-600 dark:text-purple-600 mb-3"
               style={{ fontFamily: 'var(--font-playfair)' }}
             >
               {String(unit.value).padStart(2, '0')}
             </motion.div>
-            <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 uppercase tracking-wider font-medium">
+            <div className="text-base md:text-lg text-purple-950 dark:text-purple-950 uppercase tracking-wider font-bold">
               {unit.label}
             </div>
           </motion.div>

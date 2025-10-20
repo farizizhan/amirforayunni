@@ -7,11 +7,8 @@ import Navigation from "../components/Navigation";
 export default function RSVP() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    phone: '',
     guests: '1',
     attending: 'yes',
-    dietaryRestrictions: '',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -67,7 +64,7 @@ export default function RSVP() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950 dark:to-violet-950">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-200 dark:to-pink-200">
       <Navigation />
 
       <main className="max-w-2xl mx-auto px-4 py-16">
@@ -91,35 +88,6 @@ export default function RSVP() {
               name="name"
               required
               value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Email *
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100"
             />
@@ -164,20 +132,6 @@ export default function RSVP() {
                 </select>
               </div>
 
-              <div>
-                <label htmlFor="dietaryRestrictions" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Dietary Restrictions
-                </label>
-                <input
-                  type="text"
-                  id="dietaryRestrictions"
-                  name="dietaryRestrictions"
-                  value={formData.dietaryRestrictions}
-                  onChange={handleChange}
-                  placeholder="e.g., Vegetarian, Allergies, etc."
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100"
-                />
-              </div>
             </>
           )}
 
