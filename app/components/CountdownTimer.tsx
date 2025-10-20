@@ -10,30 +10,30 @@ interface TimeLeft {
   seconds: number;
 }
 
+const WEDDING_TIMESTAMP = new Date('2025-12-22T00:00:00').getTime();
+
+const calculateTimeLeft = (targetTime: number): TimeLeft => {
+  const now = Date.now();
+  const difference = targetTime - now;
+
+  if (difference > 0) {
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  }
+
+  return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+};
+
 export default function CountdownTimer() {
-  const weddingDate = new Date('2025-12-22T00:00:00').getTime();
-
-  const calculateTimeLeft = (): TimeLeft => {
-    const now = new Date().getTime();
-    const difference = weddingDate - now;
-
-    if (difference > 0) {
-      return {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
-
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  };
-
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => calculateTimeLeft(WEDDING_TIMESTAMP));
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calculateTimeLeft(WEDDING_TIMESTAMP));
     }, 1000);
 
     return () => clearInterval(timer);
@@ -57,7 +57,7 @@ export default function CountdownTimer() {
         <h2 className="text-4xl md:text-5xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
           🕐 Counting Down 🕐
         </h2>
-        <p className="text-xl md:text-2xl text-purple-900 dark:text-purple-950">Until we say "I do" 💍</p>
+        <p className="text-xl md:text-2xl text-purple-900 dark:text-purple-950">Until we say &ldquo;I do&rdquo; 💍</p>
       </motion.div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">

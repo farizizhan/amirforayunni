@@ -1,7 +1,6 @@
 'use client';
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ChangeEvent } from "react";
 import Image from "next/image";
 import Navigation from "../components/Navigation";
 
@@ -27,7 +26,7 @@ export default function Gallery() {
     setPhotos(storedPhotos);
   }, []);
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
@@ -140,10 +139,13 @@ export default function Gallery() {
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition transform hover:-translate-y-1"
               >
                 <div className="relative h-64 bg-gray-200 dark:bg-gray-700">
-                  <img
+                  <Image
                     src={photo.url}
-                    alt={photo.caption}
-                    className="w-full h-full object-cover"
+                    alt={photo.caption || 'Uploaded photo'}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover"
+                    unoptimized
                   />
                 </div>
                 <div className="p-4">
@@ -171,11 +173,14 @@ export default function Gallery() {
             className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl max-h-[90vh] overflow-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative">
-              <img
+            <div className="relative w-full" style={{ aspectRatio: '3 / 2' }}>
+              <Image
                 src={selectedPhoto.url}
-                alt={selectedPhoto.caption}
-                className="w-full h-auto"
+                alt={selectedPhoto.caption || 'Selected gallery photo'}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                unoptimized
               />
               <button
                 onClick={() => setSelectedPhoto(null)}

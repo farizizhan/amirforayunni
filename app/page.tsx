@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaHeart, FaMapMarkerAlt, FaCalendarAlt, FaGift, FaBook, FaUsers, FaClock } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import CountdownTimer from "./components/CountdownTimer";
 import MusicPlayer from "./components/MusicPlayer";
 import VenueMap from "./components/VenueMap";
@@ -201,7 +201,7 @@ export default function Home() {
         >
           <div className="text-8xl mb-8 animate-pulse">⏰</div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Don't Miss Our Big Day! 💜
+            Don&apos;t Miss Our Big Day! 💜
           </h2>
           <p className="text-2xl md:text-3xl mb-10 opacity-95" style={{ fontFamily: 'var(--font-cormorant)' }}>
             Please RSVP by 15 December 2025 🌸

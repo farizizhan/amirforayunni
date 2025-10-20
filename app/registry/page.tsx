@@ -180,7 +180,7 @@ export default function Registry() {
           className="text-center bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8"
         >
           <p className="text-2xl text-gray-700 dark:text-gray-300 mb-4" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            "The greatest gift is to be surrounded by loved ones"
+            &ldquo;The greatest gift is to be surrounded by loved ones&rdquo;
           </p>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Thank you for being part of our special day

@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import Navigation from "../components/Navigation";
 
@@ -190,7 +189,7 @@ export default function GuestList() {
                     {rsvp.name}
                   </div>
                   <div className="text-gray-600 dark:text-gray-400 italic">
-                    "{rsvp.message}"
+                    &ldquo;{rsvp.message}&rdquo;
                   </div>
                 </div>
               ))}

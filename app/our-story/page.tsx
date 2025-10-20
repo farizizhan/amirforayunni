@@ -137,7 +137,7 @@ export default function OurStory() {
           className="text-center mt-16"
         >
           <p className="text-2xl text-gray-700 dark:text-gray-300 mb-6" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            "And now these three remain: faith, hope and love. But the greatest of these is love."
+            &ldquo;And now these three remain: faith, hope and love. But the greatest of these is love.&rdquo;
           </p>
           <p className="text-gray-600 dark:text-gray-400 mb-8">- 1 Corinthians 13:13</p>
           <Link

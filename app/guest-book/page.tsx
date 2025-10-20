@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaHeart, FaPaperPlane } from "react-icons/fa";
@@ -163,7 +162,7 @@ export default function GuestBook() {
                       </span>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic">
-                      "{msg.message}"
+                      &ldquo;{msg.message}&rdquo;
                     </p>
                   </div>
                 </div>
