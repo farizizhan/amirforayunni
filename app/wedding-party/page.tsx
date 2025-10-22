@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const bridesmaids = [
   {
@@ -166,6 +167,7 @@ export default function WeddingParty() {
           </Link>
         </motion.div>
       </main>
+      <Footer />
     </div>
   );
 }

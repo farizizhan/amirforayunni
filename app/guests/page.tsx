@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 interface RSVP {
   id: number;
@@ -197,6 +198,7 @@ export default function GuestList() {
           </div>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaHeart, FaPaperPlane } from "react-icons/fa";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 interface Message {
   id: number;
@@ -171,6 +172,7 @@ export default function GuestBook() {
           )}
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

@@ -9,7 +9,6 @@ export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { href: "/", label: "Home" },
     { href: "/our-story", label: "Our Story" },
     { href: "/wedding-party", label: "Wedding Party" },
     { href: "/rsvp", label: "RSVP" },
@@ -26,7 +25,7 @@ export default function MobileNav() {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleMenu}
-        className="lg:hidden p-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition"
+        className="lg:hidden p-2 text-purple-950 dark:text-purple-950 hover:text-purple-600 dark:hover:text-purple-600 transition"
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >
@@ -69,10 +68,10 @@ export default function MobileNav() {
               className="fixed top-0 right-0 bottom-0 w-64 bg-purple-50 dark:bg-purple-100 shadow-2xl z-[60] lg:hidden overflow-y-auto"
             >
               {/* Close Button */}
-              <div className="flex justify-end p-4 border-b border-gray-200 dark:border-gray-800">
+              <div className="flex justify-end p-4 border-b border-purple-200 dark:border-purple-300">
                 <button
                   onClick={closeMenu}
-                  className="p-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition"
+                  className="p-2 text-purple-950 dark:text-purple-950 hover:text-purple-600 dark:hover:text-purple-600 transition"
                   aria-label="Close menu"
                 >
                   <FaTimes size={24} />

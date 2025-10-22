@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaHeart } from "react-icons/fa";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const timeline = [
   {
@@ -148,6 +149,7 @@ export default function OurStory() {
           </Link>
         </motion.div>
       </main>
+      <Footer />
     </div>
   );
 }

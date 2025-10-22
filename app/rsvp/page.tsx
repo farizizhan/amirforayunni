@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 export default function RSVP() {
   const [formData, setFormData] = useState({
@@ -166,6 +167,7 @@ export default function RSVP() {
           </div>
         </form>
       </main>
+      <Footer />
     </div>
   );
 }

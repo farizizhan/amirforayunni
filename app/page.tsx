@@ -223,9 +223,9 @@ export default function Home() {
         className="mt-16 py-10 text-center text-purple-900 dark:text-purple-950 border-t-2 border-purple-300 dark:border-purple-300"
       >
         <p className="font-serif text-2xl md:text-3xl mb-3" style={{ fontFamily: 'var(--font-cormorant)' }}>
-          🌸 With love, Fariz 💜
+          With love, Fariz
         </p>
-        <p className="text-lg text-purple-900 dark:text-purple-950">22 December 2025 ✨</p>
+        <p className="text-lg text-purple-900 dark:text-purple-950">22 December 2025</p>
       </motion.footer>
     </div>
   );
