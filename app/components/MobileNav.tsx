@@ -9,7 +9,6 @@ export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { href: "/our-story", label: "Our Story" },
     { href: "/wedding-party", label: "Wedding Party" },
     { href: "/rsvp", label: "RSVP" },
     { href: "/gallery", label: "Gallery" },

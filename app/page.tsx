@@ -133,18 +133,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center px-3">
+            <div className="flex justify-center px-3">
               <Link
                 href="/rsvp"
                 className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold py-5 px-10 sm:px-12 rounded-full transition shadow-lg hover:shadow-2xl text-center text-xl sm:text-2xl touch-manipulation transform hover:scale-105"
               >
                 RSVP Now 💜
-              </Link>
-              <Link
-                href="/our-story"
-                className="bg-white hover:bg-purple-50 dark:bg-white dark:hover:bg-purple-50 text-purple-600 dark:text-purple-600 font-bold py-5 px-10 sm:px-12 rounded-full transition shadow-lg hover:shadow-2xl border-3 border-purple-600 dark:border-purple-600 text-center text-xl sm:text-2xl touch-manipulation transform hover:scale-105"
-              >
-                Our Story 🌸
               </Link>
             </div>
           </div>
@@ -161,9 +155,8 @@ export default function Home() {
             Celebrate With Us 🌸
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { emoji: "💐", title: "Our Story", desc: "Journey of love", link: "/our-story" },
               { emoji: "👰🤵", title: "Wedding Party", desc: "Meet our squad", link: "/wedding-party" },
               { emoji: "💌", title: "Guest Book", desc: "Leave your wishes", link: "/guest-book" },
               { emoji: "🎁", title: "Registry", desc: "Gift options", link: "/registry" },
