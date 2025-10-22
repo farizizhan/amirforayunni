@@ -65,11 +65,14 @@ export default function OurStory() {
           >
             <FaHeart className="text-6xl text-purple-600 dark:text-purple-400 animate-pulse" />
           </motion.div>
+          <p className="text-2xl md:text-3xl text-purple-600 dark:text-purple-600 mb-4 font-arabic" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+          </p>
           <h1 className="text-5xl md:text-6xl font-serif text-gray-800 dark:text-gray-100 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Our Love Story
+            Our Love Story 🕌
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Every love story is beautiful, but ours is our favorite
+            A blessed journey of two souls united in faith and love
           </p>
         </motion.div>
 
@@ -129,23 +132,50 @@ export default function OurStory() {
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* Islamic Quote Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mt-16"
+          className="bg-gradient-to-br from-purple-600 to-violet-600 rounded-3xl shadow-2xl p-8 md:p-12 text-white mt-16 mb-8"
         >
-          <p className="text-2xl text-gray-700 dark:text-gray-300 mb-6" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            &ldquo;And now these three remain: faith, hope and love. But the greatest of these is love.&rdquo;
+          <div className="text-center">
+            <p className="text-3xl md:text-4xl mb-4">☪️</p>
+            <p className="text-2xl md:text-3xl mb-6 leading-relaxed italic" style={{ fontFamily: 'var(--font-cormorant)' }}>
+              &ldquo;And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought.&rdquo;
+            </p>
+            <p className="text-lg md:text-xl opacity-90">— Quran 30:21 (Surah Ar-Rum)</p>
+          </div>
+        </motion.div>
+
+        {/* Hadith Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 text-center mb-12"
+        >
+          <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-4 italic" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            &ldquo;The best of you are those who are best to their wives.&rdquo;
           </p>
-          <p className="text-gray-600 dark:text-gray-400 mb-8">- 1 Corinthians 13:13</p>
+          <p className="text-gray-600 dark:text-gray-400">— Prophet Muhammad ﷺ (Hadith)</p>
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-center"
+        >
           <Link
             href="/rsvp"
             className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-10 rounded-full transition shadow-lg hover:shadow-xl text-lg"
           >
-            Join Our Celebration
+            Join Our Celebration 💜
           </Link>
         </motion.div>
       </main>
