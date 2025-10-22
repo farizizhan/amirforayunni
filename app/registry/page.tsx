@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaGift, FaHeart, FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { QRCodeSVG } from "qrcode.react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
