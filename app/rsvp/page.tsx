@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import BottomNav from "../components/BottomNav";
 
 export default function RSVP() {
   const [formData, setFormData] = useState({
@@ -174,6 +175,7 @@ export default function RSVP() {
         </form>
       </main>
       <Footer />
+      <BottomNav />
     </div>
   );
 }

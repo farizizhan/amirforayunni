@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FaHeart, FaPaperPlane } from "react-icons/fa";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import BottomNav from "../components/BottomNav";
 
 interface Message {
   id: number;
@@ -176,6 +177,7 @@ export default function GuestBook() {
         </div>
       </main>
       <Footer />
+      <BottomNav />
     </div>
   );
 }

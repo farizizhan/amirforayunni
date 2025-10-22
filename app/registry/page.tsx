@@ -6,6 +6,7 @@ import { FaGift, FaHeart, FaExternalLinkAlt } from "react-icons/fa";
 import { QRCodeSVG } from "qrcode.react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import BottomNav from "../components/BottomNav";
 import { useState } from "react";
 
 export default function Registry() {
@@ -202,6 +203,7 @@ export default function Registry() {
         </motion.div>
       </main>
       <Footer />
+      <BottomNav />
     </div>
   );
 }

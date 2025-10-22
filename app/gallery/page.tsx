@@ -4,6 +4,7 @@ import { useState, useEffect, type ChangeEvent } from "react";
 import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import BottomNav from "../components/BottomNav";
 
 interface Photo {
   id: number;
@@ -216,6 +217,7 @@ export default function Gallery() {
         </div>
       )}
       <Footer />
+      <BottomNav />
     </div>
   );
 }

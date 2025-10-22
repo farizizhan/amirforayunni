@@ -7,6 +7,7 @@ import CountdownTimer from "./components/CountdownTimer";
 import MusicPlayer from "./components/MusicPlayer";
 import VenueMap from "./components/VenueMap";
 import MobileNav from "./components/MobileNav";
+import BottomNav from "./components/BottomNav";
 
 export default function Home() {
   const containerVariants = {
@@ -62,7 +63,7 @@ export default function Home() {
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="max-w-7xl mx-auto px-4 py-16"
+        className="max-w-7xl mx-auto px-4 py-16 pb-32"
       >
         {/* Main Heading */}
         <motion.div variants={itemVariants} className="text-center mb-12">
@@ -183,7 +184,7 @@ export default function Home() {
         </motion.div>
 
         {/* Venue Map */}
-        <motion.div variants={itemVariants} className="mb-20">
+        <motion.div id="map" variants={itemVariants} className="mb-20 scroll-mt-20">
           <VenueMap />
         </motion.div>
 
@@ -220,6 +221,9 @@ export default function Home() {
         </p>
         <p className="text-lg text-purple-900 dark:text-purple-950">22 December 2025</p>
       </motion.footer>
+
+      {/* Fixed Bottom Navigation */}
+      <BottomNav />
     </div>
   );
 }
