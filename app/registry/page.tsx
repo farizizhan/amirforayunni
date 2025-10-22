@@ -59,13 +59,16 @@ export default function Registry() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-block mb-4"
           >
-            <FaGift className="text-6xl text-purple-600 dark:text-purple-400" />
+            <div className="text-6xl">🎁💝</div>
           </motion.div>
-          <h1 className="text-5xl md:text-6xl font-serif text-gray-800 dark:text-gray-100 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Gift Registry
+          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Hadiyah (Gifts) 🕌
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Your presence is the greatest gift, but if you wish to honor us with a gift, here are some options
+          <p className="text-xl text-purple-900 dark:text-purple-950 max-w-2xl mx-auto mb-3" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Your presence and duas are the greatest gifts. However, if you wish to bless us with a hadiyah, we are deeply grateful.
+          </p>
+          <p className="text-lg text-purple-700 dark:text-purple-800 italic">
+            Barakallahu Lakuma ☪️
           </p>
         </motion.div>
 
@@ -109,12 +112,12 @@ export default function Registry() {
           className="bg-gradient-to-br from-purple-600 to-violet-600 rounded-3xl shadow-2xl p-8 md:p-12 text-white mb-12"
         >
           <div className="text-center mb-8">
-            <FaHeart className="text-5xl mx-auto mb-4 animate-pulse" />
+            <div className="text-5xl mx-auto mb-4">🌙✨</div>
             <h2 className="text-4xl font-serif mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-              Honeymoon Fund
+              Monetary Gift 💝
             </h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-cormorant)' }}>
-              Help us create unforgettable memories on our honeymoon adventure
+              Help us start our blessed journey together. Your generous contribution will help us build our new life, Insha&apos;Allah
             </p>
           </div>
 
@@ -180,17 +183,21 @@ export default function Registry() {
           transition={{ duration: 0.8 }}
           className="text-center bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8"
         >
-          <p className="text-2xl text-gray-700 dark:text-gray-300 mb-4" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            &ldquo;The greatest gift is to be surrounded by loved ones&rdquo;
+          <p className="text-3xl mb-4">☪️</p>
+          <p className="text-2xl text-purple-900 dark:text-gray-300 mb-4" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            &ldquo;The best of you are those who are best to their families&rdquo;
           </p>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Thank you for being part of our special day
+          <p className="text-purple-700 dark:text-gray-400 mb-6 italic">
+            — Prophet Muhammad ﷺ
+          </p>
+          <p className="text-lg text-purple-900 dark:text-gray-400 mb-6">
+            Jazakallah Khair for being part of our blessed Nikah 🕌
           </p>
           <Link
             href="/rsvp"
-            className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full transition shadow-lg hover:shadow-xl"
+            className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-10 rounded-full transition shadow-lg hover:shadow-xl text-lg"
           >
-            RSVP Now
+            RSVP Now 💜
           </Link>
         </motion.div>
       </main>

@@ -88,7 +88,7 @@ export default function Home() {
             className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif text-purple-950 dark:text-purple-950 mb-6 px-4 leading-tight"
             style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '-0.02em' }}
           >
-            💜 Amir <span className="text-purple-600 dark:text-purple-600">&</span> Ayunni 💜
+            ☪️ Amir <span className="text-purple-600 dark:text-purple-600">&</span> Ayunni 💜
           </motion.h1>
 
           <motion.p
@@ -96,7 +96,7 @@ export default function Home() {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-purple-900 dark:text-purple-950 px-4 font-light"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
-            are getting married ✨
+            invite you to celebrate their Nikah 🕌✨
           </motion.p>
         </motion.div>
 
@@ -194,16 +194,16 @@ export default function Home() {
         >
           <div className="text-8xl mb-8 animate-pulse">⏰</div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Don&apos;t Miss Our Big Day! 💜
+            Join Us for Our Blessed Nikah! ☪️💜
           </h2>
           <p className="text-2xl md:text-3xl mb-10 opacity-95" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Please RSVP by 15 December 2025 🌸
+            Please RSVP by 15 December 2025 • Insha&apos;Allah 🌸
           </p>
           <Link
             href="/rsvp"
             className="inline-block bg-white text-purple-600 hover:bg-purple-50 font-bold py-6 px-16 rounded-full transition shadow-lg hover:shadow-2xl text-2xl transform hover:scale-105 touch-manipulation"
           >
-            Reserve Your Spot ✨
+            Confirm Your Attendance 🕌
           </Link>
         </motion.div>
       </motion.main>

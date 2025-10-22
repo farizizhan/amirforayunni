@@ -43,19 +43,22 @@ export default function RSVP() {
 
         <main className="max-w-2xl mx-auto px-4 py-16">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 text-center space-y-6">
-            <div className="text-6xl">✓</div>
-            <h2 className="text-3xl font-serif text-gray-800 dark:text-gray-100">
-              Thank You!
+            <div className="text-6xl">🕌</div>
+            <h2 className="text-4xl font-serif text-purple-950 dark:text-gray-100" style={{ fontFamily: 'var(--font-playfair)' }}>
+              Jazakallah Khair! ☪️
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
-              Your RSVP has been received. We look forward to celebrating with you!
+            <p className="text-xl text-purple-900 dark:text-gray-400" style={{ fontFamily: 'var(--font-cormorant)' }}>
+              Your RSVP has been received. We look forward to celebrating this blessed Nikah with you, Insha&apos;Allah! 🌸
+            </p>
+            <p className="text-lg text-purple-700 dark:text-gray-500 italic">
+              May Allah bless you abundantly ✨
             </p>
             <div className="pt-4">
               <Link
                 href="/"
-                className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full transition"
+                className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-10 rounded-full transition shadow-lg text-lg"
               >
-                Back to Home
+                Back to Home 💜
               </Link>
             </div>
           </div>
@@ -70,11 +73,14 @@ export default function RSVP() {
 
       <main className="max-w-2xl mx-auto px-4 py-16">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-serif text-gray-800 dark:text-gray-100 mb-2">
-            RSVP
+          <p className="text-2xl text-purple-600 dark:text-purple-600 mb-3">
+            ☪️ Assalamu Alaikum ☪️
+          </p>
+          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            RSVP for the Nikah 🕌
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            Please let us know if you can join us
+          <p className="text-xl text-purple-900 dark:text-purple-950" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Please let us know if you can join us for this blessed occasion
           </p>
         </div>
 

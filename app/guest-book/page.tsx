@@ -64,13 +64,16 @@ export default function GuestBook() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-block mb-4"
           >
-            <FaHeart className="text-6xl text-purple-600 dark:text-purple-400" />
+            <div className="text-6xl">🤲✨</div>
           </motion.div>
-          <h1 className="text-5xl md:text-6xl font-serif text-gray-800 dark:text-gray-100 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Guest Book
+          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Duas & Blessings 🕌
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Leave your well wishes and blessings for the happy couple
+          <p className="text-xl text-purple-900 dark:text-purple-950 mb-3" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Leave your heartfelt duas and blessings for the blessed couple
+          </p>
+          <p className="text-lg text-purple-700 dark:text-purple-800 italic">
+            May Allah accept your prayers ☪️
           </p>
         </motion.div>
 
@@ -99,7 +102,7 @@ export default function GuestBook() {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Your Message
+                Your Dua & Blessings 🤲
               </label>
               <textarea
                 id="message"
@@ -108,7 +111,7 @@ export default function GuestBook() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 transition resize-none"
-                placeholder="Share your heartfelt wishes..."
+                placeholder="Share your heartfelt duas and prayers for the couple... (e.g., May Allah bless your union...)"
               />
             </div>
 

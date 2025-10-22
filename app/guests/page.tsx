@@ -40,11 +40,14 @@ export default function GuestList() {
 
       <main className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-serif text-gray-800 dark:text-gray-100 mb-2">
-            Guest List
+          <p className="text-2xl text-purple-600 dark:text-purple-600 mb-3">
+            📋 Barakallah 📋
+          </p>
+          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Guest List 🕌
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            Manage and view all RSVPs
+          <p className="text-xl text-purple-900 dark:text-purple-950" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            May Allah bless all who will join us for this blessed Nikah
           </p>
         </div>
 

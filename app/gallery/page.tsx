@@ -62,17 +62,20 @@ export default function Gallery() {
 
       <main className="max-w-7xl mx-auto px-4 py-16">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-serif text-gray-800 dark:text-gray-100 mb-2">
-            Photo Gallery
+          <p className="text-2xl text-purple-600 dark:text-purple-600 mb-3">
+            📸 Alhamdulillah 📸
+          </p>
+          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Nikah Memories 🕌✨
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Share your favorite moments from our special day
+          <p className="text-xl text-purple-900 dark:text-purple-950 mb-6" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Share your favorite moments from our blessed celebration
           </p>
           <button
             onClick={() => setShowUploadForm(!showUploadForm)}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition"
+            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-10 rounded-full transition shadow-lg text-lg"
           >
-            {showUploadForm ? 'Cancel' : 'Upload Photo'}
+            {showUploadForm ? 'Cancel' : 'Upload Photo 📷'}
           </button>
         </div>
 

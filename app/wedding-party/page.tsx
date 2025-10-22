@@ -5,44 +5,44 @@ import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
-const bridesmaids = [
+const brideParty = [
   {
     name: "Sarah Johnson",
-    role: "Maid of Honor",
-    bio: "Ayunni's sister and best friend since childhood. Always there with a smile and helping hand.",
+    role: "Sister & Witness",
+    bio: "Ayunni's beloved sister and best friend since childhood. Always there with love and support.",
     image: "👰"
   },
   {
     name: "Emma Williams",
-    role: "Bridesmaid",
-    bio: "College roommate and partner in crime. Knows all of Ayunni's secrets!",
+    role: "Close Friend",
+    bio: "College companion and trusted friend. Shares countless precious memories with Ayunni.",
     image: "👱‍♀️"
   },
   {
     name: "Lisa Chen",
-    role: "Bridesmaid",
-    bio: "Work bestie turned lifelong friend. Coffee dates and heart-to-hearts are their thing.",
+    role: "Dear Friend",
+    bio: "Lifelong friend and confidante. Always offering a listening ear and heartfelt advice.",
     image: "👩"
   }
 ];
 
-const groomsmen = [
+const groomParty = [
   {
     name: "Daniel Rahman",
-    role: "Best Man",
-    bio: "Amir's brother and confidant. The calm to Amir's storm.",
+    role: "Brother & Witness",
+    bio: "Amir's beloved brother and closest confidant. The calm voice of wisdom and support.",
     image: "🤵"
   },
   {
     name: "Marcus Lee",
-    role: "Groomsman",
-    bio: "Childhood friend and adventure buddy. They've been through it all together.",
+    role: "Close Friend",
+    bio: "Childhood companion and trusted friend. They've shared life's journey together.",
     image: "👨"
   },
   {
     name: "Ryan Tan",
-    role: "Groomsman",
-    bio: "College buddy and fellow sports enthusiast. Game nights are mandatory!",
+    role: "Dear Friend",
+    bio: "Loyal friend and brother in faith. Always ready to lend support and encouragement.",
     image: "👨‍💼"
   }
 ];
@@ -59,15 +59,18 @@ export default function WeddingParty() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-serif text-gray-800 dark:text-gray-100 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Our Wedding Party
+          <p className="text-2xl text-purple-600 dark:text-purple-600 mb-3">
+            👥 ☪️ 👥
+          </p>
+          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Our Beloved Family & Friends 🕌
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Meet the amazing people standing by our side on our special day
+          <p className="text-xl text-purple-900 dark:text-purple-950 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Meet the cherished people standing by our side on this blessed day
           </p>
         </motion.div>
 
-        {/* Bridesmaids */}
+        {/* Bride's Party */}
         <section className="mb-20">
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
@@ -77,10 +80,10 @@ export default function WeddingParty() {
             className="text-4xl font-serif text-purple-600 dark:text-purple-400 text-center mb-12"
             style={{ fontFamily: 'var(--font-playfair)' }}
           >
-            Bridesmaids
+            Bride's Family & Friends 👰💜
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {bridesmaids.map((person, index) => (
+            {brideParty.map((person, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -109,7 +112,7 @@ export default function WeddingParty() {
           </div>
         </section>
 
-        {/* Groomsmen */}
+        {/* Groom's Party */}
         <section>
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
@@ -119,10 +122,10 @@ export default function WeddingParty() {
             className="text-4xl font-serif text-purple-600 dark:text-purple-400 text-center mb-12"
             style={{ fontFamily: 'var(--font-playfair)' }}
           >
-            Groomsmen
+            Groom's Family & Friends 🤵💜
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {groomsmen.map((person, index) => (
+            {groomParty.map((person, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
