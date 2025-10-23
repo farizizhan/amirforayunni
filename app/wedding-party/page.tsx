@@ -63,7 +63,7 @@ export default function WeddingParty() {
           <p className="text-2xl text-purple-600 dark:text-purple-600 mb-3">
             👥 ☪️ 👥
           </p>
-          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <h1 className="text-5xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
             Our Beloved Family & Friends 🕌
           </h1>
           <p className="text-xl text-purple-900 dark:text-purple-950 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-cormorant)' }}>
@@ -83,7 +83,7 @@ export default function WeddingParty() {
           >
             Bride&apos;s Family & Friends 👰💜
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8">
             {brideParty.map((person, index) => (
               <motion.div
                 key={index}
@@ -125,7 +125,7 @@ export default function WeddingParty() {
           >
             Groom&apos;s Family & Friends 🤵💜
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8">
             {groomParty.map((person, index) => (
               <motion.div
                 key={index}

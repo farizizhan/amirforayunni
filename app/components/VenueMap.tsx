@@ -1,145 +1,123 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaParking, FaHotel, FaDirections } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { FaPaperPlane } from 'react-icons/fa';
+import { storage } from '../utils/storage';
 
-export default function VenueMap() {
-  const venueInfo = {
-    name: 'Willow Hall',
-    address: 'Forrest Valley, Bandar Mahkota Cheras',
-    coordinates: '3.0738,101.7724', // Approximate coordinates for Bandar Mahkota Cheras
-    parking: 'Ample parking available on-site',
-    nearbyHotels: [
-      'Hotel Seri Malaysia Kajang',
-      'Cititel Express Kajang',
-      'The Leaf Hotel'
-    ]
+interface Message {
+  id: number;
+  name: string;
+  message: string;
+  timestamp: string;
+}
+
+export default function CompactGuestBook() {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [formData, setFormData] = useState({ name: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const storedMessages = JSON.parse(storage.getItem('guestbook') || '[]');
+    setMessages(storedMessages.slice(0, 5)); // Show only latest 5
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.message.trim()) return;
+
+    setIsSubmitting(true);
+
+    const newMessage: Message = {
+      id: Date.now(),
+      name: formData.name.trim(),
+      message: formData.message.trim(),
+      timestamp: new Date().toISOString()
+    };
+
+    const updatedMessages = [newMessage, ...messages];
+    setMessages(updatedMessages.slice(0, 5));
+    storage.setItem('guestbook', JSON.stringify(updatedMessages));
+
+    setFormData({ name: '', message: '' });
+    setIsSubmitting(false);
   };
 
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=Willow+Hall+Forrest+Valley+Bandar+Mahkota+Cheras`;
-  const wazeUrl = `https://www.waze.com/ul?q=Willow Hall Forrest Valley Bandar Mahkota Cheras&navigate=yes`;
-
   return (
-    <div className="w-full">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-10"
-      >
-        <h2 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-          📍 Venue & Directions 🗺️
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl font-serif text-purple-950 dark:text-purple-950 mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+          💌 Ucapan
         </h2>
-        <p className="text-xl md:text-2xl text-purple-900 dark:text-purple-950">Find your way to our celebration 🌸</p>
-      </motion.div>
+        <p className="text-sm text-purple-700 dark:text-purple-800">Tinggalkan ucapan & doa untuk kami</p>
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Map */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="rounded-2xl overflow-hidden shadow-2xl"
-        >
-          <iframe
-            src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.3897773!2d101.7724!3d3.0738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMDQnMjUuNyJOIDEwMcKwNDYnMjAuNiJF!5e0!3m2!1sen!2smy!4v1234567890`}
-            width="100%"
-            height="400"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="w-full h-full"
+      {/* Compact Form */}
+      <form onSubmit={handleSubmit} className="mb-6">
+        <div className="bg-white/90 backdrop-blur-sm dark:bg-purple-100 rounded-xl shadow-lg p-4">
+          <input
+            type="text"
+            placeholder="Nama anda"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            required
+            maxLength={50}
+            className="w-full px-3 py-2 mb-3 border border-purple-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-white"
           />
-        </motion.div>
+          <textarea
+            placeholder="Tulis ucapan anda..."
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            required
+            maxLength={200}
+            rows={3}
+            className="w-full px-3 py-2 mb-3 border border-purple-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none dark:bg-white"
+          />
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 disabled:from-purple-400 disabled:to-violet-400 text-white py-2.5 px-4 rounded-lg font-medium text-sm transition shadow-lg flex items-center justify-center gap-2"
+          >
+            <FaPaperPlane size={14} />
+            {isSubmitting ? 'Menghantar...' : 'Hantar Ucapan'}
+          </button>
+        </div>
+      </form>
 
-        {/* Venue Details */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="space-y-6"
-        >
-          {/* Address */}
-          <div className="bg-purple-50 dark:bg-purple-100 rounded-2xl shadow-xl p-6">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center flex-shrink-0">
-                <FaMapMarkerAlt className="text-purple-600 dark:text-purple-400" size={20} />
-              </div>
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-purple-950 dark:text-purple-950 mb-3">
-                  {venueInfo.name}
-                </h3>
-                <p className="text-lg md:text-xl text-purple-900 dark:text-purple-950 mb-4">
-                  {venueInfo.address}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <a
-                    href={googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition text-sm font-medium"
-                  >
-                    <FaDirections size={16} />
-                    Google Maps
-                  </a>
-                  <a
-                    href={wazeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition text-sm font-medium"
-                  >
-                    <FaDirections size={16} />
-                    Waze
-                  </a>
+      {/* Messages Display */}
+      <div className="space-y-3">
+        {messages.length === 0 ? (
+          <div className="text-center py-8 text-purple-700 dark:text-purple-800 text-sm">
+            Be the first to leave a wish! 🤲
+          </div>
+        ) : (
+          messages.map((msg) => (
+            <div key={msg.id} className="bg-white/80 backdrop-blur-sm dark:bg-purple-50 rounded-lg p-4 shadow">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-purple-200 dark:bg-purple-300 flex items-center justify-center flex-shrink-0 text-purple-700 font-bold text-sm">
+                  {msg.name.charAt(0).toUpperCase()}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium text-purple-950 text-sm mb-1">{msg.name}</div>
+                  <p className="text-purple-900 dark:text-purple-950 text-sm leading-relaxed break-words">
+                    {msg.message}
+                  </p>
+                  <div className="text-xs text-purple-600 dark:text-purple-700 mt-2">
+                    {new Date(msg.timestamp).toLocaleDateString('en-MY', { day: 'numeric', month: 'short' })}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Parking */}
-          <div className="bg-purple-50 dark:bg-purple-100 rounded-2xl shadow-xl p-6">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center flex-shrink-0">
-                <FaParking className="text-green-600 dark:text-green-400" size={20} />
-              </div>
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-purple-950 dark:text-purple-950 mb-3">
-                  Parking
-                </h3>
-                <p className="text-lg md:text-xl text-purple-900 dark:text-purple-950">
-                  {venueInfo.parking}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Nearby Hotels */}
-          <div className="bg-purple-50 dark:bg-purple-100 rounded-2xl shadow-xl p-6">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center flex-shrink-0">
-                <FaHotel className="text-blue-600 dark:text-blue-400" size={20} />
-              </div>
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-purple-950 dark:text-purple-950 mb-3">
-                  Nearby Hotels
-                </h3>
-                <ul className="space-y-2">
-                  {venueInfo.nearbyHotels.map((hotel, index) => (
-                    <li key={index} className="text-lg text-purple-900 dark:text-purple-950 flex items-center gap-2">
-                      <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
-                      {hotel}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+          ))
+        )}
       </div>
+
+      {messages.length >= 5 && (
+        <div className="text-center mt-4">
+          <a href="/guest-book" className="text-sm text-purple-600 hover:text-purple-700 font-medium">
+            View all wishes →
+          </a>
+        </div>
+      )}
     </div>
   );
 }

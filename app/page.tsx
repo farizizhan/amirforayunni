@@ -1,226 +1,140 @@
 'use client';
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { FaHeart } from "react-icons/fa";
 import CountdownTimer from "./components/CountdownTimer";
 import MusicPlayer from "./components/MusicPlayer";
-import VenueMap from "./components/VenueMap";
-import MobileNav from "./components/MobileNav";
+import CompactGuestBook from "./components/VenueMap";
+import CompactGallery from "./components/CompactGallery";
 import BottomNav from "./components/BottomNav";
 
 export default function Home() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-200 dark:to-pink-200">
-      {/* Music Player */}
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+      {/* Music Player - Minimal */}
       <MusicPlayer />
 
-      {/* Navigation */}
-      <nav className="bg-purple-50/90 dark:bg-purple-100/90 backdrop-blur-sm shadow-md sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Link href="/" className="text-xl sm:text-2xl font-serif text-purple-600 dark:text-purple-400" style={{ fontFamily: 'var(--font-playfair)' }}>
-                A & A
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <MobileNav />
-            </motion.div>
+      {/* Section 1: Hero - Full Height */}
+      <section id="hero" className="h-screen snap-start flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-200 dark:to-pink-200 scroll-mt-0">
+        <div className="text-center px-4 max-w-4xl mx-auto">
+          <div className="mb-6">
+            <FaHeart className="text-6xl text-purple-600 dark:text-purple-400 inline-block" />
+          </div>
+
+          <p className="text-lg text-purple-700 dark:text-purple-700 mb-3 font-medium">
+            ☪️ Bismillahirrahmanirrahim ☪️
+          </p>
+
+          <p className="text-xl text-purple-900 dark:text-purple-800 mb-4 font-medium" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Dengan penuh kesyukuran ke hadrat Allah S.W.T,
+          </p>
+
+          <p className="text-lg text-purple-900 dark:text-purple-800 mb-5 px-4" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            kami sekeluarga menjemput
+            <br />
+            Dato&apos; / Datin / Tuan / Puan / Encik / Cik
+            <br />
+            ke <strong>Majlis Walimatul Urus</strong>
+          </p>
+
+          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-6 px-4 leading-tight" style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '-0.02em' }}>
+            Amir <span className="text-purple-600 dark:text-purple-600">&</span> Ayunni
+          </h1>
+
+          <div className="mt-8 text-purple-400 animate-bounce">
+            <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </div>
-      </nav>
+      </section>
 
-      {/* Hero Section */}
-      <motion.main
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-        className="max-w-7xl mx-auto px-4 py-16 pb-32"
-      >
-        {/* Main Heading */}
-        <motion.div variants={itemVariants} className="text-center mb-12">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="inline-block mb-6"
-          >
-            <FaHeart className="text-6xl md:text-8xl text-purple-600 dark:text-purple-400 animate-pulse" />
-          </motion.div>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-2xl md:text-3xl text-purple-900 dark:text-purple-950 mb-4 font-medium"
-            style={{ fontFamily: 'var(--font-cormorant)' }}
-          >
-            Together with their families 🌸
-          </motion.p>
-
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif text-purple-950 dark:text-purple-950 mb-6 px-4 leading-tight"
-            style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '-0.02em' }}
-          >
-            ☪️ Amir <span className="text-purple-600 dark:text-purple-600">&</span> Ayunni 💜
-          </motion.h1>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-purple-900 dark:text-purple-950 px-4 font-light"
-            style={{ fontFamily: 'var(--font-cormorant)' }}
-          >
-            invite you to celebrate their Nikah 🕌✨
-          </motion.p>
-        </motion.div>
-
-        {/* Date & Venue Card */}
-        <motion.div variants={itemVariants} className="mb-16">
-          <div className="max-w-3xl mx-auto bg-purple-50/95 dark:bg-purple-50/95 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 border border-purple-200">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+      {/* Section 2: Date & Venue - Full Height */}
+      <section className="h-screen snap-start flex items-center justify-center bg-gradient-to-br from-pink-50 to-purple-50">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-purple-200">
+            <div className="space-y-8 mb-8">
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
                   <span className="text-5xl">📅</span>
-                  <h3 className="text-3xl font-semibold text-purple-950 dark:text-purple-950">
-                    Date
-                  </h3>
+                  <h3 className="text-3xl font-semibold text-purple-950">Tarikh</h3>
                 </div>
-                <p className="text-5xl font-serif text-purple-600 dark:text-purple-600 mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
-                  22 December 2025
+                <p className="text-5xl font-serif text-purple-600 mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
+                  22 Disember 2025
                 </p>
-                <p className="text-xl text-purple-900 dark:text-purple-950">Sunday 🌸</p>
+                <p className="text-xl text-purple-900">Ahad 🌸</p>
               </div>
 
-              <div className="text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
                   <span className="text-5xl">📍</span>
-                  <h3 className="text-3xl font-semibold text-purple-950 dark:text-purple-950">
-                    Venue
-                  </h3>
+                  <h3 className="text-3xl font-semibold text-purple-950">Tempat</h3>
                 </div>
-                <p className="text-2xl font-semibold text-purple-950 dark:text-purple-950">
+                <p className="text-2xl font-semibold text-purple-950">
                   Willow Hall 🏛️
                 </p>
-                <p className="text-lg text-purple-900 dark:text-purple-950 mt-2">
+                <p className="text-lg text-purple-900 mt-2">
                   Forrest Valley<br />Bandar Mahkota Cheras
                 </p>
               </div>
             </div>
 
-            <div className="flex justify-center px-3">
+            <div className="flex justify-center">
               <Link
                 href="/rsvp"
-                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold py-5 px-10 sm:px-12 rounded-full transition shadow-lg hover:shadow-2xl text-center text-xl sm:text-2xl touch-manipulation transform hover:scale-105"
+                aria-label="Sahkan kehadiran"
+                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold py-5 px-10 rounded-full transition shadow-lg text-center text-xl touch-manipulation"
               >
-                RSVP Now 💜
+                Sahkan Kehadiran 💜
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
+      </section>
 
-        {/* Countdown Timer */}
-        <motion.div variants={itemVariants} className="mb-20">
+      {/* Section 3: Countdown Timer - Full Height */}
+      <section className="h-screen snap-start flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100">
+        <div className="w-full px-4">
           <CountdownTimer />
-        </motion.div>
+        </div>
+      </section>
 
-        {/* Feature Cards */}
-        <motion.div variants={itemVariants} className="mb-20">
-          <h2 className="text-5xl md:text-6xl font-serif text-center text-purple-950 dark:text-purple-950 mb-16" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Celebrate With Us 🌸
+      {/* Section 4: Photo Gallery - Full Height */}
+      <section className="h-screen snap-start flex items-center justify-center bg-gradient-to-br from-pink-50 to-purple-50">
+        <div className="w-full px-4">
+          <CompactGallery />
+        </div>
+      </section>
+
+      {/* Section 5: Guest Book - Full Height */}
+      <section id="guestbook" className="h-screen snap-start flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100 scroll-mt-0">
+        <div className="w-full px-4">
+          <CompactGuestBook />
+        </div>
+      </section>
+
+      {/* Section 6: Final CTA - Full Height */}
+      <section className="h-screen snap-start flex items-center justify-center bg-gradient-to-br from-purple-600 to-violet-600">
+        <div className="text-center max-w-4xl mx-auto px-4 text-white">
+          <div className="text-8xl mb-8">🕌</div>
+          <h2 className="text-5xl font-serif mb-6 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Jemput Hadir ke Majlis Kami ☪️💜
           </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { emoji: "👰🤵", title: "Wedding Party", desc: "Meet our squad", link: "/wedding-party" },
-              { emoji: "💌", title: "Guest Book", desc: "Leave your wishes", link: "/guest-book" },
-              { emoji: "🎁", title: "Registry", desc: "Gift options", link: "/registry" },
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -15, scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Link href={feature.link} className="block bg-purple-50 dark:bg-purple-50 rounded-3xl shadow-xl hover:shadow-2xl transition-all p-8 text-center border border-purple-200">
-                  <div className="text-7xl mb-6">
-                    {feature.emoji}
-                  </div>
-                  <h3 className="text-2xl font-bold text-purple-950 dark:text-purple-950 mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-lg text-purple-900 dark:text-purple-950">
-                    {feature.desc}
-                  </p>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Venue Map */}
-        <motion.div id="map" variants={itemVariants} className="mb-20 scroll-mt-20">
-          <VenueMap />
-        </motion.div>
-
-        {/* Final CTA */}
-        <motion.div
-          variants={itemVariants}
-          className="text-center bg-gradient-to-br from-purple-600 to-violet-600 rounded-3xl shadow-2xl p-12 md:p-16 text-white"
-        >
-          <div className="text-8xl mb-8 animate-pulse">⏰</div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Join Us for Our Blessed Nikah! ☪️💜
-          </h2>
-          <p className="text-2xl md:text-3xl mb-10 opacity-95" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Please RSVP by 15 December 2025 • Insha&apos;Allah 🌸
+          <p className="text-2xl mb-10 opacity-95" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Sila sahkan kehadiran sebelum 15 Disember 2025 • Insha&apos;Allah 🌸
           </p>
           <Link
             href="/rsvp"
-            className="inline-block bg-white text-purple-600 hover:bg-purple-50 font-bold py-6 px-16 rounded-full transition shadow-lg hover:shadow-2xl text-2xl transform hover:scale-105 touch-manipulation"
+            className="inline-block bg-white text-purple-600 hover:bg-purple-50 font-bold py-6 px-16 rounded-full transition shadow-lg hover:shadow-2xl text-2xl touch-manipulation"
           >
-            Confirm Your Attendance 🕌
+            Sahkan Kehadiran 🕌
           </Link>
-        </motion.div>
-      </motion.main>
 
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="mt-16 py-10 text-center text-purple-900 dark:text-purple-950 border-t-2 border-purple-300 dark:border-purple-300"
-      >
-        <p className="font-serif text-2xl md:text-3xl mb-3" style={{ fontFamily: 'var(--font-cormorant)' }}>
-          With love, Fariz
-        </p>
-        <p className="text-lg text-purple-900 dark:text-purple-950">22 December 2025</p>
-      </motion.footer>
+          {/* Spacer for bottom nav */}
+          <div className="pb-20"></div>
+        </div>
+      </section>
 
       {/* Fixed Bottom Navigation */}
       <BottomNav />

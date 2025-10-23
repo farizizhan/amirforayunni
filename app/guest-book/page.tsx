@@ -6,6 +6,7 @@ import { FaPaperPlane } from "react-icons/fa";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import BottomNav from "../components/BottomNav";
+import { storage } from "../utils/storage";
 
 interface Message {
   id: number;
@@ -23,7 +24,7 @@ export default function GuestBook() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const storedMessages = JSON.parse(localStorage.getItem('guestbook') || '[]');
+    const storedMessages = JSON.parse(storage.getItem('guestbook') || '[]');
     setMessages(storedMessages);
   }, []);
 
@@ -39,7 +40,7 @@ export default function GuestBook() {
 
     const updatedMessages = [newMessage, ...messages];
     setMessages(updatedMessages);
-    localStorage.setItem('guestbook', JSON.stringify(updatedMessages));
+    storage.setItem('guestbook', JSON.stringify(updatedMessages));
 
     setSubmitted(true);
     setTimeout(() => {
@@ -67,14 +68,14 @@ export default function GuestBook() {
           >
             <div className="text-6xl">🤲✨</div>
           </motion.div>
-          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Duas & Blessings 🕌
+          <h1 className="text-5xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Ucapan & Doa 🕌
           </h1>
           <p className="text-xl text-purple-900 dark:text-purple-950 mb-3" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Leave your heartfelt duas and blessings for the blessed couple
+            Tinggalkan ucapan dan doa tulus untuk pengantin
           </p>
           <p className="text-lg text-purple-700 dark:text-purple-800 italic">
-            May Allah accept your prayers ☪️
+            Semoga Allah menerima doa anda ☪️
           </p>
         </motion.div>
 
@@ -88,7 +89,7 @@ export default function GuestBook() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Your Name
+                Nama Anda
               </label>
               <input
                 type="text"
@@ -97,13 +98,13 @@ export default function GuestBook() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 transition"
-                placeholder="Enter your name"
+                placeholder="Masukkan nama anda"
               />
             </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Your Dua & Blessings 🤲
+                Ucapan & Doa Anda 🤲
               </label>
               <textarea
                 id="message"
@@ -112,7 +113,7 @@ export default function GuestBook() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 transition resize-none"
-                placeholder="Share your heartfelt duas and prayers for the couple... (e.g., May Allah bless your union...)"
+                placeholder="Kongsi ucapan dan doa tulus anda untuk pengantin..."
               />
             </div>
 
@@ -123,7 +124,7 @@ export default function GuestBook() {
               className="w-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold py-4 px-8 rounded-lg transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
             >
               <FaPaperPlane />
-              {submitted ? 'Message Sent! ❤️' : 'Send Your Wishes'}
+              {submitted ? 'Ucapan Dihantar! ❤️' : 'Hantar Ucapan'}
             </motion.button>
           </form>
         </motion.div>
@@ -131,7 +132,7 @@ export default function GuestBook() {
         {/* Messages Display */}
         <div className="space-y-6">
           <h2 className="text-3xl font-serif text-gray-800 dark:text-gray-100 mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Wishes from Our Guests ({messages.length})
+            Ucapan dari Tetamu ({messages.length})
           </h2>
 
           {messages.length === 0 ? (
@@ -141,7 +142,7 @@ export default function GuestBook() {
               className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl"
             >
               <p className="text-gray-500 dark:text-gray-400 text-lg">
-                Be the first to leave a message! ✨
+                Jadilah yang pertama meninggalkan ucapan! ✨
               </p>
             </motion.div>
           ) : (
@@ -163,7 +164,7 @@ export default function GuestBook() {
                         {msg.name}
                       </h3>
                       <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {new Date(msg.timestamp).toLocaleDateString()}
+                        {new Date(msg.timestamp).toLocaleDateString('ms-MY')}
                       </span>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic">

@@ -1,0 +1,218 @@
+'use client';
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { FaHeart } from "react-icons/fa";
+import CountdownTimer from "./components/CountdownTimer";
+import MusicPlayer from "./components/MusicPlayer";
+import VenueMap from "./components/VenueMap";
+import BottomNav from "./components/BottomNav";
+
+export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-200 dark:to-pink-200">
+      {/* Music Player */}
+      <MusicPlayer />
+
+      {/* Navigation - Minimal and auto-hide */}
+      <motion.nav
+        initial={{ y: 0 }}
+        className="bg-purple-50/80 dark:bg-purple-100/80 backdrop-blur-sm shadow-sm sticky top-0 z-40"
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-center h-12 items-center">
+            <Link href="/" className="text-lg font-serif text-purple-600 dark:text-purple-400" style={{ fontFamily: 'var(--font-playfair)' }} aria-label="Homepage - Amir and Ayunni">
+              A & A
+            </Link>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Hero Section */}
+      <motion.main
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="max-w-7xl mx-auto px-4 py-16 pb-24"
+      >
+        {/* Main Heading */}
+        <motion.div variants={itemVariants} className="text-center mb-12">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="inline-block mb-6"
+          >
+            <FaHeart className="text-6xl text-purple-600 dark:text-purple-400 animate-pulse" />
+          </motion.div>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-2xl text-purple-900 dark:text-purple-800 mb-4 font-medium"
+            style={{ fontFamily: 'var(--font-cormorant)' }}
+          >
+            Together with their families 🌸
+          </motion.p>
+
+          <motion.h1
+            variants={itemVariants}
+            className="text-5xl font-serif text-purple-950 dark:text-purple-950 mb-6 px-4 leading-tight"
+            style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '-0.02em' }}
+          >
+            ☪️ Amir <span className="text-purple-600 dark:text-purple-600">&</span> Ayunni 💜
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-2xl text-purple-900 dark:text-purple-800 px-4 font-light"
+            style={{ fontFamily: 'var(--font-cormorant)' }}
+          >
+            invite you to celebrate their Nikah 🕌✨
+          </motion.p>
+        </motion.div>
+
+        {/* Date & Venue Card */}
+        <motion.div variants={itemVariants} className="mb-16">
+          <div className="max-w-3xl mx-auto bg-purple-50/95 dark:bg-purple-50/95 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-purple-200">
+            <div className="grid grid-cols-1 gap-8 mb-8">
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <span className="text-5xl">📅</span>
+                  <h3 className="text-3xl font-semibold text-purple-950 dark:text-purple-950">
+                    Date
+                  </h3>
+                </div>
+                <p className="text-5xl font-serif text-purple-600 dark:text-purple-500 mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
+                  22 December 2025
+                </p>
+                <p className="text-xl text-purple-900 dark:text-purple-800">Sunday 🌸</p>
+              </div>
+
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <span className="text-5xl">📍</span>
+                  <h3 className="text-3xl font-semibold text-purple-950 dark:text-purple-950">
+                    Venue
+                  </h3>
+                </div>
+                <p className="text-2xl font-semibold text-purple-950 dark:text-purple-900">
+                  Willow Hall 🏛️
+                </p>
+                <p className="text-lg text-purple-900 dark:text-purple-800 mt-2">
+                  Forrest Valley<br />Bandar Mahkota Cheras
+                </p>
+              </div>
+            </div>
+
+            <div className="flex justify-center px-3">
+              <Link
+                href="/rsvp"
+                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold py-5 px-10 rounded-full transition shadow-lg hover:shadow-2xl text-center text-xl touch-manipulation transform hover:scale-105"
+              >
+                RSVP Now 💜
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Countdown Timer */}
+        <motion.div variants={itemVariants} className="mb-20">
+          <CountdownTimer />
+        </motion.div>
+
+        {/* Feature Cards */}
+        <motion.div variants={itemVariants} className="mb-20">
+          <h2 className="text-5xl font-serif text-center text-purple-950 dark:text-purple-950 mb-16" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Celebrate With Us 🌸
+          </h2>
+
+          <div className="grid grid-cols-1 gap-8">
+            {[
+              { emoji: "👰🤵", title: "Wedding Party", desc: "Meet our squad", link: "/wedding-party" },
+              { emoji: "💌", title: "Guest Book", desc: "Leave your wishes", link: "/guest-book" },
+              { emoji: "🎁", title: "Registry", desc: "Gift options", link: "/registry" },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -15, scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Link href={feature.link} className="block bg-purple-50 dark:bg-purple-50 rounded-3xl shadow-xl hover:shadow-2xl transition-all p-8 text-center border border-purple-200">
+                  <div className="text-7xl mb-6">
+                    {feature.emoji}
+                  </div>
+                  <h3 className="text-2xl font-bold text-purple-950 dark:text-purple-950 mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-lg text-purple-900 dark:text-purple-800">
+                    {feature.desc}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Venue Map */}
+        <motion.div id="map" variants={itemVariants} className="mb-20 scroll-mt-20">
+          <VenueMap />
+        </motion.div>
+
+        {/* Final CTA */}
+        <motion.div
+          variants={itemVariants}
+          className="text-center bg-gradient-to-br from-purple-600 to-violet-600 rounded-3xl shadow-2xl p-12 text-white"
+        >
+          <div className="text-8xl mb-8 animate-pulse">⏰</div>
+          <h2 className="text-5xl font-serif mb-6 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Join Us for Our Blessed Nikah! ☪️💜
+          </h2>
+          <p className="text-2xl mb-10 opacity-95" style={{ fontFamily: 'var(--font-cormorant)' }}>
+            Please RSVP by 15 December 2025 • Insha&apos;Allah 🌸
+          </p>
+          <Link
+            href="/rsvp"
+            className="inline-block bg-white text-purple-600 hover:bg-purple-50 font-bold py-6 px-16 rounded-full transition shadow-lg hover:shadow-2xl text-2xl transform hover:scale-105 touch-manipulation"
+          >
+            Confirm Your Attendance 🕌
+          </Link>
+        </motion.div>
+      </motion.main>
+
+      {/* Footer */}
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="mt-16 py-10 text-center text-purple-900 dark:text-purple-950 border-t-2 border-purple-300 dark:border-purple-300"
+      >
+        <p className="font-serif text-2xl mb-3" style={{ fontFamily: 'var(--font-cormorant)' }}>
+          With love, Fariz
+        </p>
+        <p className="text-lg text-purple-900 dark:text-purple-950">22 December 2025</p>
+      </motion.footer>
+
+      {/* Fixed Bottom Navigation */}
+      <BottomNav />
+    </div>
+  );
+}

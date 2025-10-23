@@ -45,10 +45,10 @@ export default function MusicPlayer() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 1 }}
-      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
+      className="hidden md:fixed md:bottom-24 md:right-4 md:z-40"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
       onTouchStart={() => setShowControls(true)}
@@ -60,16 +60,16 @@ export default function MusicPlayer() {
         preload="none"
       />
 
-      <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-full shadow-2xl p-3 sm:p-4">
-        <div className="flex items-center gap-2 sm:gap-3">
+      <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full shadow-lg p-2">
+        <div className="flex items-center gap-2">
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={togglePlay}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow touch-manipulation"
+            className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white flex items-center justify-center shadow-md transition-shadow touch-manipulation"
             aria-label={isPlaying ? 'Pause music' : 'Play music'}
           >
-            {isPlaying ? <FaPause size={14} className="sm:w-4 sm:h-4" /> : <FaPlay size={14} className="ml-0.5 sm:w-4 sm:h-4" />}
+            {isPlaying ? <FaPause size={12} /> : <FaPlay size={12} className="ml-0.5" />}
           </motion.button>
 
           <AnimatePresence>
@@ -82,10 +82,10 @@ export default function MusicPlayer() {
               >
                 <button
                   onClick={toggleMute}
-                  className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition touch-manipulation p-1"
+                  className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition touch-manipulation"
                   aria-label={isMuted ? 'Unmute' : 'Mute'}
                 >
-                  {isMuted ? <FaVolumeMute size={16} /> : <FaVolumeUp size={16} />}
+                  {isMuted ? <FaVolumeMute size={14} /> : <FaVolumeUp size={14} />}
                 </button>
                 <input
                   type="range"
@@ -94,7 +94,8 @@ export default function MusicPlayer() {
                   step="0.1"
                   value={volume}
                   onChange={handleVolumeChange}
-                  className="w-16 sm:w-20 h-2 bg-gray-300 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer accent-purple-600 touch-manipulation"
+                  aria-label="Volume control"
+                  className="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer accent-purple-600 touch-manipulation"
                 />
               </motion.div>
             )}
@@ -105,7 +106,7 @@ export default function MusicPlayer() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isPlaying ? 1 : 0 }}
-        className="absolute -top-2 -right-2 w-4 h-4 bg-purple-600 rounded-full animate-pulse"
+        className="absolute -top-1 -right-1 w-2 h-2 bg-purple-600 rounded-full animate-pulse"
       />
     </motion.div>
   );

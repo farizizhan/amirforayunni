@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import BottomNav from "../components/BottomNav";
+import { storage } from "../utils/storage";
 
 interface RSVP {
   id: number;
@@ -22,7 +23,7 @@ export default function GuestList() {
   const [filter, setFilter] = useState<'all' | 'attending' | 'not-attending'>('all');
 
   useEffect(() => {
-    const storedRSVPs = JSON.parse(localStorage.getItem('rsvps') || '[]');
+    const storedRSVPs = JSON.parse(storage.getItem('rsvps') || '[]');
     setRsvps(storedRSVPs);
   }, []);
 
@@ -44,7 +45,7 @@ export default function GuestList() {
           <p className="text-2xl text-purple-600 dark:text-purple-600 mb-3">
             📋 Barakallah 📋
           </p>
-          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <h1 className="text-5xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
             Guest List 🕌
           </h1>
           <p className="text-xl text-purple-900 dark:text-purple-950" style={{ fontFamily: 'var(--font-cormorant)' }}>
@@ -52,7 +53,7 @@ export default function GuestList() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 gap-4 mb-8">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center">
             <div className="text-3xl font-bold text-green-600 dark:text-green-400">
               {attendingCount}

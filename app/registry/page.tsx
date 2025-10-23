@@ -15,21 +15,21 @@ export default function Registry() {
   const registryLinks = [
     {
       name: "Amazon Registry",
-      description: "Home essentials and wishlist items",
+      description: "Keperluan rumah dan senarai hajat",
       url: "https://www.amazon.com/wedding/registry",
       icon: "🛍️",
       color: "from-orange-500 to-yellow-500"
     },
     {
       name: "IKEA Registry",
-      description: "Furniture and home decor",
+      description: "Perabot dan hiasan rumah",
       url: "https://www.ikea.com",
       icon: "🏠",
       color: "from-blue-500 to-cyan-500"
     },
     {
-      name: "Cash Fund",
-      description: "Contribute to our honeymoon",
+      name: "Sumbangan Wang",
+      description: "Sumbang untuk bulan madu kami",
       url: "#cash-fund",
       icon: "✈️",
       color: "from-purple-500 to-pink-500"
@@ -47,7 +47,7 @@ export default function Registry() {
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-200 dark:to-pink-200">
       <Navigation />
 
-      <main className="max-w-6xl mx-auto px-4 py-16">
+      <main className="max-w-6xl mx-auto px-4 py-16 pb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,11 +62,11 @@ export default function Registry() {
           >
             <div className="text-6xl">🎁💝</div>
           </motion.div>
-          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Hadiyah (Gifts) 🕌
+          <h1 className="text-5xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Hadiah 🕌
           </h1>
           <p className="text-xl text-purple-900 dark:text-purple-950 max-w-2xl mx-auto mb-3" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Your presence and duas are the greatest gifts. However, if you wish to bless us with a hadiyah, we are deeply grateful.
+            Kehadiran dan doa anda adalah hadiah terbesar. Namun, jika anda ingin memberkati kami dengan hadiah, kami amat berterima kasih.
           </p>
           <p className="text-lg text-purple-700 dark:text-purple-800 italic">
             Barakallahu Lakuma ☪️
@@ -74,7 +74,7 @@ export default function Registry() {
         </motion.div>
 
         {/* Registry Options */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 gap-8 mb-16">
           {registryLinks.map((registry, index) => (
             <motion.a
               key={index}
@@ -115,32 +115,32 @@ export default function Registry() {
           <div className="text-center mb-8">
             <div className="text-5xl mx-auto mb-4">🌙✨</div>
             <h2 className="text-4xl font-serif mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-              Monetary Gift 💝
+              Hadiah Wang Tunai 💝
             </h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-cormorant)' }}>
-              Help us start our blessed journey together. Your generous contribution will help us build our new life, Insha&apos;Allah
+              Bantu kami memulakan perjalanan hidup bersama. Sumbangan anda akan membantu kami membina kehidupan baru, Insha&apos;Allah
             </p>
           </div>
 
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 max-w-2xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               <div>
-                <h3 className="text-lg font-semibold mb-4">Bank Transfer Details</h3>
+                <h3 className="text-lg font-semibold mb-4">Butiran Pindahan Bank</h3>
                 <div className="space-y-3 text-sm">
                   <div>
                     <span className="opacity-75">Bank:</span>
                     <div className="font-semibold">{bankDetails.bank}</div>
                   </div>
                   <div>
-                    <span className="opacity-75">Account Name:</span>
+                    <span className="opacity-75">Nama Akaun:</span>
                     <div className="font-semibold">{bankDetails.accountName}</div>
                   </div>
                   <div>
-                    <span className="opacity-75">Account Number:</span>
+                    <span className="opacity-75">Nombor Akaun:</span>
                     <div className="font-semibold text-xl tracking-wider">{bankDetails.accountNumber}</div>
                   </div>
                   <div>
-                    <span className="opacity-75">Reference:</span>
+                    <span className="opacity-75">Rujukan:</span>
                     <div className="font-semibold">{bankDetails.reference}</div>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ export default function Registry() {
                   onClick={() => setShowQR(!showQR)}
                   className="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition mb-4"
                 >
-                  {showQR ? 'Hide QR Code' : 'Show QR Code'}
+                  {showQR ? 'Tutup Kod QR' : 'Papar Kod QR'}
                 </button>
 
                 {showQR && (
@@ -167,7 +167,7 @@ export default function Registry() {
                       includeMargin={true}
                     />
                     <p className="text-xs text-gray-600 text-center mt-2">
-                      Scan to save details
+                      Imbas untuk simpan butiran
                     </p>
                   </motion.div>
                 )}
@@ -186,19 +186,19 @@ export default function Registry() {
         >
           <p className="text-3xl mb-4">☪️</p>
           <p className="text-2xl text-purple-900 dark:text-gray-300 mb-4" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            &ldquo;The best of you are those who are best to their families&rdquo;
+            &ldquo;Sebaik-baik kamu ialah yang terbaik terhadap keluarganya&rdquo;
           </p>
           <p className="text-purple-700 dark:text-gray-400 mb-6 italic">
-            — Prophet Muhammad ﷺ
+            — Nabi Muhammad ﷺ
           </p>
           <p className="text-lg text-purple-900 dark:text-gray-400 mb-6">
-            Jazakallah Khair for being part of our blessed Nikah 🕌
+            Jazakallah Khair kerana menjadi sebahagian dari majlis walimatul urus kami 🕌
           </p>
           <Link
             href="/rsvp"
             className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-10 rounded-full transition shadow-lg hover:shadow-xl text-lg"
           >
-            RSVP Now 💜
+            Sahkan Kehadiran 💜
           </Link>
         </motion.div>
       </main>

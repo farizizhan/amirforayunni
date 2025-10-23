@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import BottomNav from "../components/BottomNav";
+import { storage } from "../utils/storage";
 
 interface Photo {
   id: number;
@@ -22,15 +23,17 @@ export default function Gallery() {
     caption: '',
     uploadedBy: ''
   });
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
-    const storedPhotos = JSON.parse(localStorage.getItem('photos') || '[]');
+    const storedPhotos = JSON.parse(storage.getItem('photos') || '[]');
     setPhotos(storedPhotos);
   }, []);
 
   const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      setIsUploading(true);
       const reader = new FileReader();
       reader.onloadend = () => {
         const newPhoto: Photo = {
@@ -42,9 +45,14 @@ export default function Gallery() {
         };
         const updatedPhotos = [...photos, newPhoto];
         setPhotos(updatedPhotos);
-        localStorage.setItem('photos', JSON.stringify(updatedPhotos));
+        storage.setItem('photos', JSON.stringify(updatedPhotos));
         setShowUploadForm(false);
         setFormData({ caption: '', uploadedBy: '' });
+        setIsUploading(false);
+      };
+      reader.onerror = () => {
+        console.error('Error reading file');
+        setIsUploading(false);
       };
       reader.readAsDataURL(file);
     }
@@ -53,7 +61,7 @@ export default function Gallery() {
   const handleDelete = (id: number) => {
     const updatedPhotos = photos.filter(p => p.id !== id);
     setPhotos(updatedPhotos);
-    localStorage.setItem('photos', JSON.stringify(updatedPhotos));
+    storage.setItem('photos', JSON.stringify(updatedPhotos));
     setSelectedPhoto(null);
   };
 
@@ -61,34 +69,36 @@ export default function Gallery() {
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-200 dark:to-pink-200">
       <Navigation />
 
-      <main className="max-w-7xl mx-auto px-4 py-16">
+      <main className="max-w-7xl mx-auto px-4 py-16 pb-24">
         <div className="text-center mb-8">
           <p className="text-2xl text-purple-600 dark:text-purple-600 mb-3">
             📸 Alhamdulillah 📸
           </p>
-          <h1 className="text-5xl md:text-6xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Nikah Memories 🕌✨
+          <h1 className="text-5xl font-serif text-purple-950 dark:text-purple-950 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
+            Kenangan Majlis 🕌✨
           </h1>
           <p className="text-xl text-purple-900 dark:text-purple-950 mb-6" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            Share your favorite moments from our blessed celebration
+            Kongsi detik-detik indah dari majlis kami
           </p>
           <button
             onClick={() => setShowUploadForm(!showUploadForm)}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-10 rounded-full transition shadow-lg text-lg"
+            disabled={isUploading}
+            aria-label={showUploadForm ? 'Batal muat naik foto' : 'Muat naik foto'}
+            className="bg-purple-600 hover:bg-purple-700 disabled:bg-purple-400 disabled:cursor-not-allowed text-white font-semibold py-4 px-10 rounded-full transition shadow-lg text-lg"
           >
-            {showUploadForm ? 'Cancel' : 'Upload Photo 📷'}
+            {isUploading ? 'Memuat naik...' : showUploadForm ? 'Batal' : 'Muat Naik Foto 📷'}
           </button>
         </div>
 
         {showUploadForm && (
           <div className="max-w-2xl mx-auto mb-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
-              Upload a Photo
+              Muat Naik Foto
             </h2>
             <div className="space-y-4">
               <div>
                 <label htmlFor="uploadedBy" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Your Name
+                  Nama Anda
                 </label>
                 <input
                   type="text"
@@ -96,12 +106,12 @@ export default function Gallery() {
                   value={formData.uploadedBy}
                   onChange={(e) => setFormData({ ...formData, uploadedBy: e.target.value })}
                   className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100"
-                  placeholder="Enter your name"
+                  placeholder="Masukkan nama anda"
                 />
               </div>
               <div>
                 <label htmlFor="caption" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Caption
+                  Keterangan
                 </label>
                 <input
                   type="text"
@@ -109,12 +119,12 @@ export default function Gallery() {
                   value={formData.caption}
                   onChange={(e) => setFormData({ ...formData, caption: e.target.value })}
                   className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100"
-                  placeholder="Add a caption"
+                  placeholder="Tambah keterangan"
                 />
               </div>
               <div>
                 <label htmlFor="photo" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Select Photo
+                  Pilih Foto
                 </label>
                 <input
                   type="file"
@@ -132,11 +142,11 @@ export default function Gallery() {
           <div className="text-center py-16">
             <div className="text-6xl mb-4">📷</div>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              No photos yet. Be the first to share a memory!
+              Tiada foto lagi. Jadilah yang pertama untuk berkongsi kenangan!
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 gap-6">
             {photos.map((photo) => (
               <div
                 key={photo.id}
@@ -146,7 +156,7 @@ export default function Gallery() {
                 <div className="relative h-64 bg-gray-200 dark:bg-gray-700">
                   <Image
                     src={photo.url}
-                    alt={photo.caption || 'Uploaded photo'}
+                    alt={photo.caption || 'Foto yang dimuat naik'}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover"
@@ -160,7 +170,7 @@ export default function Gallery() {
                     </p>
                   )}
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    By {photo.uploadedBy || 'Anonymous'}
+                    Oleh {photo.uploadedBy || 'Tanpa Nama'}
                   </p>
                 </div>
               </div>
@@ -181,7 +191,7 @@ export default function Gallery() {
             <div className="relative w-full" style={{ aspectRatio: '3 / 2' }}>
               <Image
                 src={selectedPhoto.url}
-                alt={selectedPhoto.caption || 'Selected gallery photo'}
+                alt={selectedPhoto.caption || 'Foto galeri dipilih'}
                 fill
                 sizes="100vw"
                 className="object-contain"
@@ -203,14 +213,14 @@ export default function Gallery() {
                 </h3>
               )}
               <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Uploaded by {selectedPhoto.uploadedBy || 'Anonymous'} on{' '}
-                {new Date(selectedPhoto.uploadedAt).toLocaleDateString()}
+                Dimuat naik oleh {selectedPhoto.uploadedBy || 'Tanpa Nama'} pada{' '}
+                {new Date(selectedPhoto.uploadedAt).toLocaleDateString('ms-MY')}
               </p>
               <button
                 onClick={() => handleDelete(selectedPhoto.id)}
                 className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition"
               >
-                Delete Photo
+                Padam Foto
               </button>
             </div>
           </div>
