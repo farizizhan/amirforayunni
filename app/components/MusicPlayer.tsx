@@ -40,7 +40,6 @@ export default function MusicPlayer() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const playerRef = useRef<YTPlayer | null>(null);
   const playerContainerRef = useRef<HTMLDivElement>(null);
-  const [showPlayer, setShowPlayer] = useState(false);
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -160,21 +159,6 @@ export default function MusicPlayer() {
         transition={{ duration: 0.5, delay: 1 }}
         className="fixed bottom-20 right-4 z-40 md:bottom-24"
       >
-        {/* YouTube Player - Small Visible Embed */}
-        <AnimatePresence>
-          {showPlayer && (
-            <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.9 }}
-              className="mb-3 rounded-lg overflow-hidden shadow-2xl border-2 border-purple-200"
-              ref={playerContainerRef}
-            >
-              <div id="youtube-player" className="w-64 h-36"></div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         {/* Control Button */}
         <div
           className="relative"
@@ -192,18 +176,6 @@ export default function MusicPlayer() {
                 aria-label={isPlaying ? 'Jeda muzik' : 'Main muzik'}
               >
                 {isPlaying ? <FaPause size={14} /> : <FaPlay size={14} className="ml-0.5" />}
-              </motion.button>
-
-              {/* Show/Hide player button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowPlayer(!showPlayer)}
-                className="w-9 h-9 rounded-full bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 flex items-center justify-center shadow-md transition-all touch-manipulation hover:bg-purple-200 dark:hover:bg-purple-800"
-                aria-label={showPlayer ? 'Sembunyikan pemain' : 'Tunjukkan pemain'}
-                title={showPlayer ? 'Sembunyikan' : 'Tunjukkan'}
-              >
-                <span className="text-xs font-bold">▶️</span>
               </motion.button>
 
               {/* Volume controls - desktop only */}
@@ -246,16 +218,14 @@ export default function MusicPlayer() {
           />
         </div>
 
-        {/* Hidden player container if not showing visible player */}
-        {!showPlayer && (
-          <div
-            ref={playerContainerRef}
-            className="fixed -left-[9999px] -top-[9999px] w-0 h-0 overflow-hidden pointer-events-none"
-            aria-hidden="true"
-          >
-            <div id="youtube-player"></div>
-          </div>
-        )}
+        {/* Hidden player container */}
+        <div
+          ref={playerContainerRef}
+          className="fixed -left-[9999px] -top-[9999px] w-0 h-0 overflow-hidden pointer-events-none"
+          aria-hidden="true"
+        >
+          <div id="youtube-player"></div>
+        </div>
       </motion.div>
     </>
   );
